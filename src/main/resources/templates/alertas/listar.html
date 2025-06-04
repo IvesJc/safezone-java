@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Alertas</title></head>
+<body>
+<h1>Alertas</h1>
+<a th:href="@{/alertas/novo}">Novo Alerta</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th><th>Título</th><th>Severidade</th><th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="a : ${alertas}">
+        <td th:text="${a.id}"></td>
+        <td th:text="${a.titulo}"></td>
+        <td th:text="${a.severidade}"></td>
+        <td>
+            <a th:href="@{/alertas/editar/{id}(id=${a.id})}">Editar</a>
+            <a th:href="@{/alertas/deletar/{id}(id=${a.id})}">Deletar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

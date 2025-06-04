@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Formulário de Campanha</title></head>
+<body>
+<h1>Cadastro de Campanha</h1>
+<form th:action="@{/campanhas}" th:object="${campanha}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    Nome: <input th:field="*{nome}"/>
+    <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div><br/>
+    Descrição: <input th:field="*{descricao}"/>
+    <div th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></div><br/>
+    Data Início: <input type="date" th:field="*{dataInicio}"/>
+    <div th:if="${#fields.hasErrors('dataInicio')}" th:errors="*{dataInicio}"></div><br/>
+    Data Fim: <input type="date" th:field="*{dataFim}"/>
+    <div th:if="${#fields.hasErrors('dataFim')}" th:errors="*{dataFim}"></div><br/>
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>
+
+::contentReference[oaicite:0]{index=0}
+

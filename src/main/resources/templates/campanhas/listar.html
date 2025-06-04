@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Campanhas</title></head>
+<body>
+<h1>Campanhas</h1>
+<a th:href="@{/campanhas/nova}">Nova Campanha</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th><th>Nome</th><th>Data Início</th><th>Data Fim</th><th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c : ${campanhas}">
+        <td th:text="${c.id}"></td>
+        <td th:text="${c.nome}"></td>
+        <td th:text="${c.dataInicio}"></td>
+        <td th:text="${c.dataFim}"></td>
+        <td>
+            <a th:href="@{/campanhas/editar/{id}(id=${c.id})}">Editar</a>
+            <a th:href="@{/campanhas/deletar/{id}(id=${c.id})}">Deletar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
