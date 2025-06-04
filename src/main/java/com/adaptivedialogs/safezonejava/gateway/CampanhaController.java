@@ -1,13 +1,11 @@
 package com.adaptivedialogs.safezonejava.gateway;
 
-import ch.qos.logback.core.model.Model;
-import com.adaptivedialogs.safezonejava.entities.Alerta;
 import com.adaptivedialogs.safezonejava.entities.Campanha;
-import com.adaptivedialogs.safezonejava.usecases.AlertaService;
 import com.adaptivedialogs.safezonejava.usecases.CampanhaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
