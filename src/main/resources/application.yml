@@ -1,7 +1,17 @@
 spring:
+  datasource:
+    url: jdbc:oracle:thin:@${ORACLE_URL}:1521:${ORACLE_SID}
+    username: ${ORACLE_USER}
+    password: ${ORACLE_PASSWORD}
+    driver-class-name: oracle.jdbc.OracleDriver
   data:
     mongodb:
       uri: ${MONGO_HOST}
+      database: ${MONGO_DATABASE}
+  jpa:
+    hibernate:
+      ddl-auto: update
+#    database-platform: org.hibernate.dialect.Oracle10gDialect
   security:
     oauth2:
       client:
