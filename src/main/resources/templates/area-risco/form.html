@@ -1,33 +1,41 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <title>Cadastro de Área</title>
+<meta charset="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head th:replace="~{fragments/header :: head}">
+    <link rel="icon" href="../../static/images/safezone-icon.png" type="image/png">
+    <title>Cadastro Área de Risco</title>
 </head>
 <body>
-<h1 th:text="${areaRisco.id == null ? 'Nova Área' : 'Editar Área'}"></h1>
+<div th:replace="~{fragments/header :: body}"></div>
 
-<form th:action="@{/areas-risco}" th:object="${areaRisco}" method="post">
-  <input type="hidden" th:field="*{id}"/>
+<main>
 
-  <label>Nome:</label>
-  <input th:field="*{nome}"/>
-  <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+    <h1 th:text="${areaRisco.id == null ? 'Nova Área' : 'Editar Área'}"></h1>
 
-  <label>Descrição:</label>
-  <input th:field="*{descricao}"/>
-  <div th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></div>
+    <form th:action="@{/areas-risco}" th:object="${areaRisco}" method="post">
+        <input type="hidden" th:field="*{id}"/>
 
-  <label>Latitude:</label>
-  <input th:field="*{latitude}"/>
-  <div th:if="${#fields.hasErrors('latitude')}" th:errors="*{latitude}"></div>
+        <label>Nome:</label>
+        <input th:field="*{nome}"/>
+        <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
 
-  <label>Longitude:</label>
-  <input th:field="*{longitude}"/>
-  <div th:if="${#fields.hasErrors('longitude')}" th:errors="*{longitude}"></div>
+        <label>Descrição:</label>
+        <input th:field="*{descricao}"/>
+        <div th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></div>
 
-  <button type="submit">Salvar</button>
-</form>
+        <label>Latitude:</label>
+        <input th:field="*{latitude}"/>
+        <div th:if="${#fields.hasErrors('latitude')}" th:errors="*{latitude}"></div>
 
-<a th:href="@{/areas-risco}">Voltar</a>
+        <label>Longitude:</label>
+        <input th:field="*{longitude}"/>
+        <div th:if="${#fields.hasErrors('longitude')}" th:errors="*{longitude}"></div>
+
+        <button type="submit">Salvar</button>
+    </form>
+
+    <a th:href="@{/areas-risco}">Voltar</a>
+</main>
+
 </body>
 </html>

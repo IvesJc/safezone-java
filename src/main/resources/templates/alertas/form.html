@@ -1,19 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head><title>Formulário de Alerta</title></head>
+<meta charset="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head th:replace="~{fragments/header :: head}">
+    <link rel="icon" href="../../static/images/safezone-icon.png" type="image/png">
+    <title>Cadastro de Alerta</title>
+    <style>
+        .form-spacing {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
 <body>
-<h1>Cadastro de Alerta</h1>
-<form th:action="@{/alertas}" th:object="${alerta}" method="post">
-    <input type="hidden" th:field="*{id}"/>
-    Título: <input th:field="*{titulo}"/>
-    <div th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div><br/>
-    Descrição: <input th:field="*{descricao}"/>
-    <div th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></div><br/>
-    Data e Hora: <input type="datetime-local" th:field="*{dataHora}"/>
-    <div th:if="${#fields.hasErrors('dataHora')}" th:errors="*{dataHora}"></div><br/>
-    Severidade: <input th:field="*{severidade}"/>
-    <div th:if="${#fields.hasErrors('severidade')}" th:errors="*{severidade}"></div><br/>
-    <button type="submit">Salvar</button>
-</form>
+<div th:replace="~{fragments/header :: body}"></div>
+
+<main>
+
+    <h1>Cadastro de Alerta</h1>
+    <form th:action="@{/alertas}" th:object="${alerta}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        Título: <input th:field="*{titulo}"/>
+        <div th:class="form-spacing" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
+        <br/>
+        Descrição: <input th:field="*{descricao}"/>
+        <div th:class="form-spacing"  th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></div>
+        <br/>
+        Data e Hora: <input type="datetime-local" th:field="*{dataHora}"/>
+        <div th:class="form-spacing"  th:if="${#fields.hasErrors('dataHora')}" th:errors="*{dataHora}"></div>
+        <br/>
+        Severidade: <input th:field="*{severidade}"/>
+        <div th:class="form-spacing"  th:if="${#fields.hasErrors('severidade')}" th:errors="*{severidade}"></div>
+        <br/>
+        <button type="submit">Salvar</button>
+    </form>
+    <a th:href="@{/alertas}">Voltar</a>
+</main>
+
 </body>
 </html>

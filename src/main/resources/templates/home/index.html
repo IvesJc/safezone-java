@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head th:replace="~{fragments/header :: head}">
+    <link rel="icon" th:href="@{/images/safezone-icon.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Safezone</title>
+</head>
+<body>
+<header>
+    <div th:replace="~{fragments/header :: body}"></div>
+</header>
+
+<main>
+    <h1>Bem-vindo ao Safezone</h1>
+    <h1>Olá, <span th:text="${nome}">Usuário</span>!</h1>
+    <img th:src="${imagem}" alt="Avatar" width="100"
+         onerror="onerror=null;src='/images/avatar-default.svg';"/>
+    <a th:href="@{/logout}">Sair</a>
+
+    <h2>SafeZone é uma solução integrada baseada em dados para identificação de áreas de risco, comunicação de
+        emergência, alertas preventivos, gerenciamento de vítimas, e resposta coordenada a eventos
+        extremos.</h2>
+</main>
+
+</body>
+</html>

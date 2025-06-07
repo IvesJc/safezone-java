@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Safezone</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <style>
+        .title{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar-left">
+        <img th:src="@{/images/safezone-icon.png}" alt="Safezone" class="logo">
+        <span class="title">Safezone</span>
+    </div>
+    <div class="navbar-right">
+        <a th:href="@{/}">Início</a>
+        <a th:href="@{/ocorrencias}">Ocorrência</a>
+        <a th:href="@{/alertas}">Alerta</a>
+        <a th:href="@{/areas-risco}">Área de Risco</a>
+        <a th:href="@{/campanhas}">Campanha</a>
+    </div>
+</nav>
+</body>
+</html>

@@ -1,26 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head><title>Ocorrências</title></head>
+<meta charset="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head th:replace="~{fragments/header :: head}">
+    <link rel="icon" href="../../static/images/safezone-icon.png" type="image/png">
+    <title>Ocorrências</title>
+</head>
 <body>
-<h1>Ocorrências</h1>
-<a th:href="@{/ocorrencias/nova}">Nova Ocorrência</a>
-<table>
-    <thead>
-    <tr>
-        <th>ID</th><th>Tipo</th><th>Status</th><th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="o : ${ocorrencias}">
-        <td th:text="${o.id}"></td>
-        <td th:text="${o.tipo}"></td>
-        <td th:text="${o.status}"></td>
-        <td>
-            <a th:href="@{/ocorrencias/editar/{id}(id=${o.id})}">Editar</a>
-            <a th:href="@{/ocorrencias/deletar/{id}(id=${o.id})}">Deletar</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div th:replace="~{fragments/header :: body}"></div>
+
+<main>
+
+    <h1>Ocorrências</h1>
+    <a th:href="@{/ocorrencias/nova}">Nova Ocorrência</a>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tipo</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="o : ${ocorrencias}">
+            <td th:text="${o.id}"></td>
+            <td th:text="${o.tipo}"></td>
+            <td th:text="${o.status}"></td>
+            <td>
+                <a th:href="@{/ocorrencias/editar/{id}(id=${o.id})}">Editar</a>
+                <a th:href="@{/ocorrencias/deletar/{id}(id=${o.id})}">Deletar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
 </body>
 </html>

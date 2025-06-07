@@ -1,33 +1,41 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
+<meta charset="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head th:replace="~{fragments/header :: head}">
+    <link rel="icon" href="../../static/images/safezone-icon.png" type="image/png">
     <title>Áreas de Risco</title>
 </head>
 <body>
-<h1>Áreas de Risco</h1>
-<a th:href="@{/areas-risco/novo}">Nova Área</a>
-<table>
-    <thead>
-    <tr>
-        <th>Nome</th>
-        <th>Descrição</th>
-        <th>Latitude</th>
-        <th>Longitude</th>
-        <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="area : ${areas}">
-        <td th:text="${area.nome}">Nome</td>
-        <td th:text="${area.descricao}">Descrição</td>
-        <td th:text="${area.latitude}">Lat</td>
-        <td th:text="${area.longitude}">Long</td>
-        <td>
-            <a th:href="@{/areas-risco/editar/{id}(id=${area.id})}">Editar</a>
-            <a th:href="@{/areas-risco/excluir/{id}(id=${area.id})}" onclick="return confirm('Confirma exclusão?')">Excluir</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div th:replace="~{fragments/header :: body}"></div>
+
+<main>
+
+    <h1>Áreas de Risco</h1>
+    <a th:href="@{/areas-risco/novo}">Nova Área</a>
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="area : ${areas}">
+            <td th:text="${area.nome}">Nome</td>
+            <td th:text="${area.descricao}">Descrição</td>
+            <td th:text="${area.latitude}">Lat</td>
+            <td th:text="${area.longitude}">Long</td>
+            <td>
+                <a th:href="@{/areas-risco/editar/{id}(id=${area.id})}">Editar</a>
+                <a th:href="@{/areas-risco/excluir/{id}(id=${area.id})}" onclick="return confirm('Confirma exclusão?')">Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
 </body>
 </html>

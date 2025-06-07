@@ -12,11 +12,11 @@ public class HomeController {
     @GetMapping("/")
     public String home(Model model, @AuthenticationPrincipal OAuth2User user) {
         model.addAttribute("nome", user.getAttribute("name"));
-        return "home"; // você precisa criar esse home.html
+        return "home/index";
     }
 
     @GetMapping("/login")
     public String login() {
-        return "login";
+        return "login/login";
     }
 }
