@@ -11,6 +11,7 @@ Safezone é um sistema web desenvolvido com **Spring MVC** para monitorar, regis
 - **Spring Data MongoDB**
 - **Spring AMQP (RabbitMQ)**
 - **Thymeleaf**
+- **OAuth 2.0**
 - **Oracle SQL**
 - **MongoDB**
 - **RabbitMQ**
