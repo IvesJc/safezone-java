@@ -11,7 +11,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-#    database-platform: org.hibernate.dialect.Oracle10gDialect
+  #    database-platform: org.hibernate.dialect.Oracle10gDialect
   security:
     oauth2:
       client:
@@ -30,3 +30,26 @@ spring:
     encoding: UTF-8
     mode: HTML
     cache: false
+  ai:
+    azure:
+      openai:
+        api-key: ${AZURE_OPENAPI_KEY}
+        endpoint: ${AZURE_OPENAPI_EP}
+        chat:
+          options:
+            deployment-name: gpt-4o-mini
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+server:
+  error:
+    whitelabel:
+      enabled: false
+logging:
+  level:
+    org:
+    springframework:
+      amqp: DEBUG
+      web: DEBUG

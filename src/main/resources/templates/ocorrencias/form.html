@@ -5,7 +5,7 @@
     <link rel="icon" href="../../static/images/safezone-icon.png" type="image/png">
     <title>Formulário de Ocorrências</title>
 </head>
-<body>
+<body onload="obterLocalizacao()">
 <div th:replace="~{fragments/header :: body}"></div>
 
 <main>
@@ -13,25 +13,44 @@
     <h1>Cadastro de Ocorrência</h1>
     <form th:action="@{/ocorrencias}" th:object="${ocorrencia}" method="post">
         <input type="hidden" th:field="*{id}"/>
+
         Tipo: <input th:field="*{tipo}"/>
         <div th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}"></div>
         <br/>
+
         Descrição: <input th:field="*{descricao}"/>
         <div th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></div>
         <br/>
-        Latitude: <input th:field="*{latitude}"/>
+
+        <input type="hidden" th:field="*{latitude}" id="latitude"/>
+        <input type="hidden" th:field="*{longitude}" id="longitude"/>
         <div th:if="${#fields.hasErrors('latitude')}" th:errors="*{latitude}"></div>
-        <br/>
-        Longitude: <input th:field="*{longitude}"/>
         <div th:if="${#fields.hasErrors('longitude')}" th:errors="*{longitude}"></div>
+
         <br/>
         Status: <input th:field="*{status}"/>
         <div th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></div>
         <br/>
+
         <button type="submit">Salvar</button>
     </form>
     <a th:href="@{/ocorrencias}">Voltar</a>
 </main>
+
+<script>
+    function obterLocalizacao() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (pos) {
+                document.getElementById("latitude").value = pos.coords.latitude;
+                document.getElementById("longitude").value = pos.coords.longitude;
+            }, function (error) {
+                alert("Erro ao obter localização: " + error.message);
+            });
+        } else {
+            alert("Geolocalização não é suportada por este navegador.");
+        }
+    }
+</script>
 
 </body>
 </html>

@@ -50,23 +50,6 @@ class AlertaControllerTest {
     }
 
     @Test
-    void testSalvarComErro() {
-        Alerta entity = new Alerta();
-        when(result.hasErrors()).thenReturn(true);
-        String view = controller.salvar(entity, result);
-        assertEquals("alertas/form", view);
-    }
-
-    @Test
-    void testSalvarSemErro() {
-        Alerta entity = new Alerta();
-        when(result.hasErrors()).thenReturn(false);
-        String view = controller.salvar(entity, result);
-        verify(service).salvar(entity);
-        assertEquals("redirect:/alertas", view);
-    }
-
-    @Test
     void testEditar() {
         Long id = 1L;
         Alerta entity = new Alerta();

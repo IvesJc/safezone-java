@@ -21,6 +21,59 @@
     <h2>SafeZone é uma solução integrada baseada em dados para identificação de áreas de risco, comunicação de
         emergência, alertas preventivos, gerenciamento de vítimas, e resposta coordenada a eventos
         extremos.</h2>
+
+    <div class="borda-chat-ai">
+
+        <h1>Converse com a IA</h1>
+
+        <form method="post" th:action="@{/ai/gerar}">
+            <label for="mensagem">Pergunta:</label><br/>
+            <textarea id="mensagem" name="mensagem" rows="4" cols="50" required></textarea><br/>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div th:if="${mensagem}">
+            <h3>A sua pergunta:</h3>
+            <p th:text="${mensagem}"></p>
+        </div>
+
+        <div th:if="${resposta}">
+            <h3>Resposta da IA:</h3>
+            <p th:text="${resposta}"></p>
+        </div>
+
+    </div>
+
+
+    <h2 style="text-align:center;">Integrantes do Projeto</h2>
+
+    <div class="integrantes-container">
+        <div class="integrante">
+            <img src="https://github.com/Ellie-A-Oliveira.png" alt="Foto do integrante">
+            <h3>Ellie de Oliveira</h3>
+            <p>Turma: 2TDSPR</p>
+            <p>RM: 552824</p>
+            <p><a href="https://github.com/Ellie-A-Oliveira" target="_blank">GitHub</a></p>
+        </div>
+
+        <div class="integrante">
+            <img src="https://github.com/IvesJc.png" alt="Foto do integrante">
+            <h3>Ives Jundi Chiba</h3>
+            <p>Turma: 2TDSPR</p>
+            <p>RM: 553243</p>
+            <p><a href="https://github.com/IvesJc" target="_blank">GitHub</a></p>
+        </div>
+
+        <div class="integrante">
+            <img src="https://github.com/nathaliacmf.png" alt="Foto do integrante">
+            <h3>Nathalia Comeron Freire</h3>
+            <p>Turma: 2TDSPR</p>
+            <p>RM: 553233</p>
+            <p><a href="https://github.com/nathaliacmf" target="_blank">GitHub</a></p>
+        </div>
+
+        <!-- Adicione mais integrantes abaixo -->
+    </div>
 </main>
 
 </body>

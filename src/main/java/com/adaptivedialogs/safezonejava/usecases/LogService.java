@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class LogService {
 
-    private LogRepository logRepository;
+    private final LogRepository logRepository;
 
     public void log(String message, String level, String origem) {
         LogEntry entry = new LogEntry();

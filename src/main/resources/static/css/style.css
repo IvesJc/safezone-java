@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    padding: 30px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #003366;
+    padding: 20px 30px;
+    color: white;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+.brand {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.navbar-right a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.navbar-right a:hover {
+    text-decoration: underline;
+}
+
+.form-spacing {
+    margin-bottom: 20px;
+}
+
+.borda-chat-ai {
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+.integrantes-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.integrante {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 200px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.integrante:hover {
+    transform: scale(1.03);
+}
+
+.integrante img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.integrante h3 {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.integrante p {
+    margin: 2px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.integrante a {
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.integrante a:hover {
+    text-decoration: underline;
+}

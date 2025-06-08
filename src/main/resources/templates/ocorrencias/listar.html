@@ -4,6 +4,13 @@
 <head th:replace="~{fragments/header :: head}">
     <link rel="icon" href="../../static/images/safezone-icon.png" type="image/png">
     <title>Ocorrências</title>
+    <style>
+        .acoes {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px; /* Espaço entre os links */
+        }
+    </style>
 </head>
 <body>
 <div th:replace="~{fragments/header :: body}"></div>
@@ -13,26 +20,42 @@
     <h1>Ocorrências</h1>
     <a th:href="@{/ocorrencias/nova}">Nova Ocorrência</a>
     <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Tipo</th>
-            <th>Status</th>
-            <th>Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="o : ${ocorrencias}">
-            <td th:text="${o.id}"></td>
-            <td th:text="${o.tipo}"></td>
-            <td th:text="${o.status}"></td>
-            <td>
-                <a th:href="@{/ocorrencias/editar/{id}(id=${o.id})}">Editar</a>
-                <a th:href="@{/ocorrencias/deletar/{id}(id=${o.id})}">Deletar</a>
-            </td>
-        </tr>
-        </tbody>
+        <div class="acoes">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo</th>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Localização</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="o : ${ocorrencias}">
+                <td th:text="${o.id}"></td>
+                <td th:text="${o.tipo}"></td>
+                <td th:text="${o.descricao}"></td>
+                <td th:text="${o.status}"></td>
+                <td th:text="${o.latitude}"></td>
+                <td th:text="${o.longitude}"></td>
+                <td>
+                    <a th:href="'https://www.google.com/maps?q=' + ${o.latitude} + ',' + ${o.longitude}"
+                       target="_blank">
+                        Ver no mapa
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{/ocorrencias/editar/{id}(id=${o.id})}">Editar</a>
+                    <a th:href="@{/ocorrencias/deletar/{id}(id=${o.id})}">Deletar</a>
+                </td>
+            </tr>
+            </tbody>
+        </div>
     </table>
+
 </main>
 
 </body>
