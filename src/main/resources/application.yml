@@ -7,7 +7,7 @@ spring:
   data:
     mongodb:
       uri: ${MONGO_HOST}
-      database: ${MONGO_DATABASE}
+#      database: ${MONGO_DATABASE}
   jpa:
     hibernate:
       ddl-auto: update

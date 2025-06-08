@@ -16,7 +16,7 @@ public class LoggingAspect {
 
     private final LogService logService;
 
-    @AfterReturning("within(@org.springframework.web.bind.annotation.RestController *)")
+    @AfterReturning("within(@org.springframework.stereotype.Controller *)")
     public void logAfterControllerMethods(JoinPoint joinPoint) {
         String className = joinPoint.getTarget().getClass().getSimpleName();
         String methodName = joinPoint.getSignature().getName();
@@ -26,7 +26,7 @@ public class LoggingAspect {
         logService.log(message, "INFO", className);
     }
 
-    @AfterThrowing(pointcut = "within(@org.springframework.web.bind.annotation.RestController *)", throwing = "ex")
+    @AfterThrowing(pointcut = "within(@org.springframework.stereotype.Controller *)", throwing = "ex")
     public void logAfterThrowingException(JoinPoint joinPoint, Throwable ex) {
         String className = joinPoint.getTarget().getClass().getSimpleName();
         String methodName = joinPoint.getSignature().getName();
