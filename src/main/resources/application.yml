@@ -6,7 +6,7 @@ spring:
     driver-class-name: oracle.jdbc.OracleDriver
   data:
     mongodb:
-      uri: ${MONGO_HOST}
+      uri: ${MONGO_URI}
 #      database: ${MONGO_DATABASE}
   jpa:
     hibernate:
