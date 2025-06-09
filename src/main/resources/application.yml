@@ -39,7 +39,7 @@ spring:
           options:
             deployment-name: gpt-4o-mini
   rabbitmq:
-    host: localhost
+    host: ${RABBITMQ-HOST}
     port: 5672
     username: guest
     password: guest
