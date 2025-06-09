@@ -7,7 +7,7 @@ spring:
   data:
     mongodb:
       uri: ${MONGO_URI}
-#      database: ${MONGO_DATABASE}
+  #      database: ${MONGO_DATABASE}
   jpa:
     hibernate:
       ddl-auto: update
@@ -39,10 +39,9 @@ spring:
           options:
             deployment-name: gpt-4o-mini
   rabbitmq:
-    host: ${RABBITMQ-HOST}
-    port: 5672
     username: guest
     password: guest
+    addresses: ${RABBITMQ-HOST}
 server:
   error:
     whitelabel:
